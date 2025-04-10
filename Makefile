@@ -12,7 +12,3 @@ all: $(TARGETS)
 .PHONY: clean CLEAN
 clean:
 	latexmk -c
-
-CLEAN: clean
-	rm *.pdf &
-	rm *.svg &
