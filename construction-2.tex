@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows, intersections}
+
+\begin{document}
+\begin{tikzpicture}
+    % Base.
+    \draw (0, 0) to (4, 0) ;
+    \draw (0, 0) -- (0, 3) ;
+    \draw (4, 0) -- (4, 3) ;
+
+    % Guide box.
+    \draw [gray, dotted] (0, 5) to (4, 5);
+    \draw [gray, dotted] (0, 1) to (4, 1);
+    \draw [gray, dotted] (0, 1) to (0, 5);
+    \draw [gray, dotted] (4, 1) to (4, 5);
+    % Diagonals in guide box.
+    \draw [gray, dotted] (0, 1) to (4, 5);
+    \draw [gray, dotted] (4, 1) to (0, 5);
+
+    % Rotated guide box with compass points.
+    \draw [gray, dotted] ({2+sqrt(8)}, 3) to ({2-sqrt(8)}, 3);
+    \draw [gray, dotted] (2, {3-sqrt(8)}) to ({2+sqrt(8)}, 3) node[circle, draw, solid] {};
+    \draw [gray, dotted] (2, {3-sqrt(8)}) to ({2-sqrt(8)}, 3) node[circle, draw, solid] {};
+    \draw [gray, dotted] ({2-sqrt(8)}, 3) to (2, {3+sqrt(8)});
+    \draw [gray, dotted] ({2+sqrt(8)}, 3) to (2, {3+sqrt(8)});
+
+    % Arch.
+    % The end angles here approximate a gross trigonometric angle while ensuring
+    % the arms of the arc intersect.
+    \draw [name path=R1] (4, 3) arc (0:54.2:{2+sqrt(2)*2});
+    \draw [name path=R2] (0, 3) arc (180:125.8:{2+sqrt(2)*2});
+
+    % Compass points to point of arch.
+    \draw[name intersections={of=R1 and R2}] (intersection-1);
+    \draw [gray, dotted] ({2+sqrt(8)}, 3) to (intersection-1);
+    \draw [gray, dotted] ({2-sqrt(8)}, 3) to (intersection-1);
+\end{tikzpicture}
+\end{document}

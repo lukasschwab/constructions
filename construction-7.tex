@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows, intersections}
+
+\begin{document}
+\begin{tikzpicture}
+    % Base.
+    \draw (0, 0) to (4, 0) ;
+    \draw (0, 0) -- (0, 4) ;
+    \draw (4, 0) -- (4, 4) ;
+
+    % First horizontal guide with compass points.
+    \draw [gray, dotted] (0, 4) to (1, 4) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (1, 4) to (3, 4) node[circle, draw, solid] {} ;
+    % Guide grid.
+    \draw [gray, dotted] (1, 6) to (3, 6) ;
+    \draw [gray, dotted] (1, 5) to (3, 5) ;
+    \draw [gray, dotted] (2, 4) to (2, 6) ;
+    % Upper compass points.
+    \draw [gray, dotted] (1, 4) to (1, {5+sqrt(3)}) node[circle, draw, solid] {};
+    \draw [gray, dotted] (3, 4) to (3, {5+sqrt(3)}) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (1, {5+sqrt(3)}) to (3, {5+sqrt(3)}) ;
+    % Central compass point.
+    \draw [gray, dotted] (1, {5+sqrt(3)}) to (2, 5) node[circle, draw, solid] {};
+    \draw [gray, dotted] (3, {5+sqrt(3)}) to (2, 5);
+
+    % Arch: lower.
+    \draw (0, 4) arc (180:90:1);
+    \draw (4, 4) arc (0:90:1);
+    % Arch: upper.
+    \draw (1, 5) arc (180:120:1);
+    \draw (3, 5) arc (0:60:1);
+    \draw (2, {5+sqrt(3)}) arc (0:-60:1);
+    \draw (2, {5+sqrt(3)}) arc (-180:-120:1);
+\end{tikzpicture}
+\end{document}

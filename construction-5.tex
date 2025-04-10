@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows, intersections}
+
+\begin{document}
+\begin{tikzpicture}
+    % Base.
+    \draw (0, 0) to (4, 0) ;
+    \draw (0, 0) -- (0, 5) ;
+    \draw (4, 0) -- (4, 5) ;
+
+    % Compass points and guide square.
+    \draw [gray, dotted] (0, 5) -- (1, 5) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (1, 5) -- (3, 5) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (3, 5) -- (4, 5) ;
+    \draw [gray, dotted] (1, 5) -- (1, 7) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (3, 5) -- (3, 7) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (1, 7) -- (3, 7) ;
+    \draw [gray, dotted] (1, 6) -- (3, 6) ;
+    \draw [gray, dotted] (2, 5) -- (2, 7) ;
+
+
+    % Arch: lower.
+    \draw (0, 5) arc (180:90:1);
+    \draw (4, 5) arc (0:90:1);
+    % Arch: upper.
+    \draw (1, 6) arc (-90:0:1);
+    \draw (3, 6) arc (270:180:1);
+\end{tikzpicture}
+\end{document}

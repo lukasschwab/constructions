@@ -1,0 +1,21 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows, intersections}
+
+\begin{document}
+\begin{tikzpicture}
+    % Base.
+    \draw (0, 0) to (4, 0) ;
+    \draw (0, 0) -- (0, 5) ;
+    \draw (4, 0) -- (4, 5) ;
+
+    % Compass points.
+    \draw [gray, dotted] (0, 5) -- (0, 7) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (4, 5) -- (4, 7) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (0, 7) -- (4, 7) ;
+
+    % Arch.
+    \draw [name path=R1] (0, 5) arc (-90:0:2);
+    \draw [name path=R1] (4, 5) arc (-90:-180:2);
+\end{tikzpicture}
+\end{document}

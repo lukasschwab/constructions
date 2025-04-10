@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+\begin{document}
+\begin{tikzpicture}
+    % Base and compass points.
+    \draw (0, 0) to (4, 0) ;
+    \draw (0, 0) -- (0, 5) node[circle, draw] {} ;
+    \draw (4, 0) -- (4, 5) node[circle, draw] {} ;
+
+    % Guide horizontal.
+    \draw [gray, dotted] (0, 5) to (4, 5);
+
+    % Arch.
+    \draw (0, 5) arc (180:120:4);
+    \draw (4, 5) arc (0:60:4);
+
+    % Compass points to point of arch.
+    \draw [gray, dotted] (0, 5) to (2, {5+sqrt(12)});
+    \draw [gray, dotted] (4, 5) to (2, {5+sqrt(12)});
+\end{tikzpicture}
+\end{document}
