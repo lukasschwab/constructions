@@ -6,22 +6,22 @@
 \begin{tikzpicture}
     % Base.
     \draw (0, 0) to (4, 0) ;
-    \draw (0, 0) -- (0, 3) ;
-    \draw (4, 0) -- (4, 3) ;
+    \draw (0, 0) -- (0, 1) ;
+    \draw (4, 0) -- (4, 1) ;
 
     % Compass points.
-    \draw [gray, dotted] (2, 3) to (8, 3) node[circle, draw, solid] {};
-    \draw [gray, dotted] (2, 3) to (-4, 3) node[circle, draw, solid] {};
+    \draw [gray, dotted] (2, 1) to (8, 1) node[circle, draw, solid] {};
+    \draw [gray, dotted] (2, 1) to (-4, 1) node[circle, draw, solid] {};
 
     % Arch.
     % The end angles here approximate a gross trigonometric angle while ensuring
     % the arms of the arc intersect.
-    \draw [name path=R1] (4, 3) arc (0:41.45:8);
-    \draw [name path=R2] (0, 3) arc (180:138.55:8);
+    \draw [name path=R1] (4, 1) arc (0:41.45:8);
+    \draw [name path=R2] (0, 1) arc (180:138.55:8);
 
     % Compass points to point of arch.
     \draw[name intersections={of=R1 and R2}] (intersection-1);
-    \draw [gray, dotted] (8, 3) to (intersection-1);
-    \draw [gray, dotted] (-4, 3) to (intersection-1);
+    \draw [gray, dotted] (8, 1) to (intersection-1);
+    \draw [gray, dotted] (-4, 1) to (intersection-1);
 \end{tikzpicture}
 \end{document}
