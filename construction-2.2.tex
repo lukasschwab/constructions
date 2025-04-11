@@ -31,10 +31,8 @@
     \draw [gray, dotted] ({2+sqrt(8)}, 3) to (2, {3+sqrt(8)});
 
     % Arch.
-    % The end angles here approximate a gross trigonometric angle while ensuring
-    % the arms of the arc intersect.
-    \draw [name path=R1] (4, 3) arc (0:54.2:{2+sqrt(2)*2});
-    \draw [name path=R2] (0, 3) arc (180:125.8:{2+sqrt(2)*2});
+    \draw [name path=R1] (4, 3) arc (0:{acos((2*sqrt(2))/(2+2*sqrt(2)))}:{2+sqrt(2)*2});
+    \draw [name path=R2] (0, 3) arc (180:{180-acos((2*sqrt(2))/(2+2*sqrt(2)))}:{2+sqrt(2)*2});
 
     % Compass points to point of arch.
     \draw[name intersections={of=R1 and R2}] (intersection-1);

@@ -18,10 +18,8 @@
     \draw [gray, dotted] (2, 1) to (-4, 1) node[circle, draw, solid] {};
 
     % Arch.
-    % The end angles here approximate a gross trigonometric angle while ensuring
-    % the arms of the arc intersect.
-    \draw [name path=R1] (4, 1) arc (0:41.45:8);
-    \draw [name path=R2] (0, 1) arc (180:138.55:8);
+    \draw [name path=R1] (4, 1) arc (0:{acos(3/4)}:8);
+    \draw [name path=R2] (0, 1) arc (180:{180-acos(3/4)}:8);
 
     % Compass points to point of arch.
     \draw[name intersections={of=R1 and R2}] (intersection-1);
