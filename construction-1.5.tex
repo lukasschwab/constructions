@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows, intersections}
+
+% Plate 1, Figure 2.
+
+\begin{document}
+\begin{tikzpicture}
+    % Base and compass points.
+    \draw (0, 0) to (4, 0) ;
+    \draw (0, 0) -- (0, 5) ;
+    \draw (4, 0) -- (4, 5) ;
+
+    % Guide horizontal.
+    \draw [gray, dotted] (0, 5) to (1, 5) node[circle, draw, solid] {} ;
+    \draw [-|, gray, dotted] (1, 5) to (2, 5) ;
+    \draw [gray, dotted] (2, 5) to (3, 5) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (3, 5) to (4, 5) ;
+
+    % Arch: lower.
+    \draw (0, 5) arc (180:{180-atan(5/3)}:1) coordinate (leftTransition) ;
+    \draw (4, 5) arc (0:{atan(5/3)}:1) coordinate (rightTransition) ;
+
+    % Guide lines from base to transition points.
+    \draw [gray, dotted] (4, 0) node[circle, draw, solid] {} to (leftTransition) ;
+    \draw [gray, dotted] (0, 0) node[circle, draw, solid] {} to (rightTransition) ;
+
+    % Arch: upper.
+    \draw [name path=R1] (leftTransition) arc ({180-atan(5/3)}:{180-acos(2/(1+sqrt(34)))}:{1+sqrt(34)}) ;
+    \draw [name path=R2] (rightTransition) arc ({atan(5/3)}:{acos(2/(1+sqrt(34)))}:{1+sqrt(34)}) ;
+
+    \draw[name intersections={of=R1 and R2}] (intersection-1);
+    \draw [gray, dotted] (4, 0) node[circle, draw, solid] {} to (intersection-1) ;
+    \draw [gray, dotted] (0, 0) node[circle, draw, solid] {} to (intersection-1) ;
+
+\end{tikzpicture}
+\end{document}

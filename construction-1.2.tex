@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows, intersections}
+
+% Plate 1, Figure 2.
+
+\begin{document}
+\begin{tikzpicture}
+    % Base and compass points.
+    \draw (0, 0) to (4, 0) ;
+    \draw (0, 0) -- (0, 6) ;
+    \draw (4, 0) -- (4, 6) ;
+
+    % Guide horizontal.
+    \draw [gray, dotted] (0, 6) to (2, 6) node[circle, draw, solid] {}  ;
+    \draw [gray, dotted] (4, 6) to (2, 6) ;
+
+    \draw [gray, dotted] (4, 6) arc (0:-90:2) node[circle, draw, solid] {} ;
+
+    \draw [gray, dotted] (4, 6) arc (0:-90:2) node[circle, draw, solid] {} coordinate (compasspoint) ;
+    \draw [gray, dotted] (0, 6) to (compasspoint) ;
+    \draw [gray, dotted] (4, 6) to (compasspoint) ;
+
+    % Arch.
+    \draw (0, 6) arc (135:45:{2*sqrt(2)});
+\end{tikzpicture}
+\end{document}

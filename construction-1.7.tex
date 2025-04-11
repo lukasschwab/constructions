@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows, intersections}
+
+% Plate 1, Figure 2.
+
+\begin{document}
+\begin{tikzpicture}
+    % Base and compass points.
+    \draw (0, 0) to (4, 0) ;
+    \draw (0, 0) -- (0, 4) ;
+    \draw (4, 0) -- (4, 4) ;
+
+    % Guide horizontal.
+    \draw [gray, dotted] (0, 4) to (1, 4) node[circle, draw, solid] {} ;
+    \draw [-|, gray, dotted] (1, 4) to (2, 4) ;
+    \draw [gray, dotted] (2, 4) to (3, 4) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (3, 4) to (4, 4) ;
+
+    % % Arch.
+    \draw [name path=R1] (0, 4) arc (180:{180-acos(1/3)}:3);
+    \draw [name path=R2] (4, 4) arc (0:{acos(1/3)}:3);
+
+    \draw[name intersections={of=R1 and R2}] (intersection-1);
+
+    % Guide lines to arch point of arch.
+    \draw [gray, dotted] (1, 4) to (intersection-1) ;
+    \draw [gray, dotted] (3, 4) to (intersection-1) ;
+\end{tikzpicture}
+\end{document}
