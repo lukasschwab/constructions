@@ -1,9 +1,9 @@
-SOURCES = $(wildcard *.tex)
+SOURCES = $(wildcard construction-*.tex)
 TARGETS = $(patsubst %.tex,%.svg,$(SOURCES))
 
 all: $(TARGETS)
 
-%.pdf: %.tex
+%.pdf: %.tex preamble.tex
 	xelatex $<
 
 %.svg: %.pdf
