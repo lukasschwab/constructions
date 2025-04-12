@@ -15,11 +15,11 @@
     \draw [-|, gray, dotted] (2, 6) to (3, 6) ;
     \draw [gray, dotted] (3, 6) to (4, 6) ;
 
-    \draw [gray, dotted] (2, 6) to (2, 5) node[circle, draw, solid] {} coordinate (compassPoint) ;
+    \draw [gray, dotted] (2, 6) to (2, 5) node[circle, draw, solid] {} ;
     \draw [gray, dotted] (0, 6) to (2, 5) ;
     \draw [gray, dotted] (4, 6) to (2, 5) ;
 
-    % Arch.
-    \draw (compassPoint) [carc={180-atan(1/2)}:{atan(1/2)}:{sqrt(5)}] ;
+    % % Arch.
+    \draw (0, 6) arc ({180-atan(1/2)}:{atan(1/2)}:{sqrt(5)});
 \end{tikzpicture}
 \end{document}
