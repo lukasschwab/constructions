@@ -10,10 +10,10 @@
     \draw (4, 0) -- (4, 5) ;
 
     % Guide horizontal.
-    \draw [gray, dotted] (0, 5) to (2, 5) node[circle, draw, solid] {} ;
+    \draw [gray, dotted] (0, 5) to (2, 5) node[circle, draw, solid] {} coordinate (compassPoint) ;
     \draw [gray, dotted] (2, 5) to (4, 5) ;
 
     % Arch.
-    \draw (0, 5) arc (180:0:2);
+    \draw (compassPoint) [carc=180:0:2] ;
 \end{tikzpicture}
 \end{document}
